@@ -1,0 +1,30 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="section"><div class="container" style="max-width:760px">
+  @if (event(); as e) {
+    <div class="card">
+      <a class="link" routerLink="/events">← Back to events</a>
+      <div style="margin-top:14px"><span class="badge" [class.orange]="e.tag === 'Seminar'">{{ e.tag }}</span></div>
+      <h2 style="margin-top:10px">{{ e.fullTitle }}</h2>
+      <p>{{ e.description }}</p>
+      <div class="meta">📅 {{ e.date }} · 💻 {{ e.mode }} · 🎓 YRA Programme · ⏱ {{ e.duration }}</div>
+      <div class="card" style="margin:18px 0;background:#f8fbfc"><b>Registration fee</b><div class="price" style="font-size:24px">{{ e.fee }}</div></div>
+      <p class="param-note">Route parameter read from the URL: <b>{{ eventId() }}</b></p>
+      <form class="form" (submit)="$event.preventDefault()">
+        <div class="grid2"><div class="field"><label>Full name</label><input required placeholder="Your full name"></div><div class="field"><label>Email</label><input required type="email" placeholder="you@example.com"></div></div>
+        <div class="field"><label>Institution</label><input placeholder="University / Organisation"></div>
+        <div class="field"><label>Research area</label><input placeholder="e.g. Science Education"></div>
+        <button class="btn btn-primary">Continue to registration & payment →</button>
+      </form>
+    </div>
+  } @else {
+    <div class="card"><h2>Event not found</h2><p>No event with id "{{ eventId() }}".</p><a class="link" routerLink="/events">← Back to events</a></div>
+  }
+</div></div>

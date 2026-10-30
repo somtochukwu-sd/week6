@@ -1,0 +1,16 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">Join YRA</div><h1>Become part of the community</h1><p>Connect with researchers, access opportunities and participate in structured academic development.</p></div></div>
+    <section class="section"><div class="container">
+      <div class="grid2">
+        <div><h2>YRA Membership</h2><p>Membership should connect your profile with YRA programmes, resources, announcements and future community features.</p><div class="card" style="margin-top:20px"><h3>Member benefits</h3><p>✓ Access selected resources</p><p>✓ Training and programme opportunities</p><p>✓ Research community and networking</p><p>✓ Mentorship and peer support</p><p>✓ Member announcements</p><button class="btn btn-primary" style="margin-top:15px" >Create membership</button></div></div>
+        <div class="card"><h3>Already a member?</h3><p>Sign in to manage your programmes, resources, certificates and profile.</p><button class="btn btn-teal" routerLink="/login">Member login</button><hr style="border:0;border-top:1px solid var(--line);margin:25px 0"><h3>Admin access</h3><p>Prototype view of the role-based YRA administration dashboard.</p><button class="btn btn-secondary" routerLink="/login">Open admin dashboard</button></div>
+      </div>
+    </div></section>

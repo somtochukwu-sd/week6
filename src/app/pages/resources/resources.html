@@ -1,0 +1,34 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">Research support</div><h1>YRA Resource Centre</h1><p>Practical research resources, templates, guides and toolkits — with free and premium access options.</p></div></div>
+<section class="section"><div class="container">
+  <div class="filters">
+    <input class="search" placeholder="Search resources..." (input)="onSearch($event)">
+    @for (f of filters; track f) {
+      <button class="tab" [class.active]="filter() === f" (click)="filter.set(f)" style="text-transform:capitalize">{{ f }}</button>
+    }
+  </div>
+  <div class="grid3">
+    @for (r of visible(); track r.title) {
+      <div class="card resource-card">
+        <div class="resource-thumb">{{ r.type === 'premium' ? 'PREMIUM' : 'FREE' }} · {{ r.cat.toUpperCase() }}</div>
+        <div class="resource-body">
+          <span class="badge" [class.orange]="r.type === 'premium'" [class.green]="r.type === 'free'">{{ r.type }}</span>
+          <h3 style="margin-top:10px">{{ r.title }}</h3><p>{{ r.desc }}</p>
+          <div class="meta">{{ r.format }}</div>
+          @if (r.price) { <div class="price">{{ r.price }}</div> }
+          <button class="btn" [class.btn-primary]="r.type === 'premium'" [class.btn-secondary]="r.type === 'free'" style="margin-top:10px">{{ r.type === 'premium' ? 'Get resource' : 'View / Download' }}</button>
+        </div>
+      </div>
+    } @empty {
+      <div class="card"><h3>No resources found</h3><p>Try another search or filter.</p></div>
+    }
+  </div>
+</div></section>

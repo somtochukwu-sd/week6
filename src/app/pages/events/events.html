@@ -1,0 +1,50 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">Stay connected</div><h1>Events & Training</h1><p>Register for upcoming YRA programmes or explore the training archive.</p></div></div>
+<section class="section"><div class="container">
+  <div class="section-head"><div><div class="eyebrow">Upcoming</div><h2>Registration is open</h2></div></div>
+
+  <!-- Single query parameter: ?tag=... -->
+  <div class="tabs">
+    <button class="tab" [class.active]="!selectedTag()" (click)="filterByTag(null)">All</button>
+    @for (tag of tags; track tag) {
+      <button class="tab" [class.active]="selectedTag() === tag" (click)="filterByTag(tag)">{{ tag }}</button>
+    }
+  </div>
+
+  @if (selectedTag() || selectedEvent()) {
+    <p class="query-info">
+      Query params → tag: <b>{{ selectedTag() ?? '-' }}</b>
+      @if (selectedEvent()) { · event: <b>{{ selectedEvent() }}</b> }
+    </p>
+  }
+
+  <div class="grid3">
+    @for (event of filteredEvents(); track event.id) {
+      <div class="card event-card" [class.highlight]="selectedEvent() === event.id">
+        <div class="event-img" [style.background]="event.imageBg">{{ event.heading }}</div>
+        <div class="event-body">
+          <span class="badge" [class.orange]="event.tag === 'Seminar'">{{ event.tag }}</span>
+          <h3>{{ event.title }}</h3>
+          <div class="meta">{{ event.shortDate }} · {{ event.mode }} · {{ event.duration }}</div>
+          <p>{{ event.summary }}</p>
+          <div class="card-actions">
+            <!-- Route parameter: /events/bootcamp, /events/slr, /events/spss -->
+            <button class="btn btn-primary" [routerLink]="['/events', event.id]">Register now</button>
+            <!-- Multiple query parameters: ?tag=...&event=... -->
+            <button class="btn btn-secondary" (click)="quickView(event.tag, event.id)">Quick view</button>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="card"><h3>No events found</h3><p>Try another filter.</p></div>
+    }
+  </div>
+</div></section>

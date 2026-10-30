@@ -1,0 +1,35 @@
+<div class="topbar"><span>Young Researcher Academy · Publish · Research · Impact · Collaborate</span><span>Ile-Ife, Osun State, Nigeria</span></div>
+<header class="header">
+  <nav class="nav">
+    <a class="brand" routerLink="/">
+      <img src="logo.jpeg" alt="Young Researcher Academy logo">
+      <div><strong>Young Researcher</strong><span>Academy</span></div>
+    </a>
+    <div class="navlinks">
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="active-link">{{ link.label }}</a>
+      }
+    </div>
+    <div class="actions">
+      <!-- Requirement 3: the Login button takes you to the login page -->
+      <button class="btn btn-secondary" routerLink="/login">Login</button>
+      <button class="btn btn-primary" routerLink="/community">Join YRA</button>
+    </div>
+  </nav>
+    <!-- WEEK 6: the colour select pushes the chosen colour through BOTH streams;
+         the second select switches the demo between Subject and BehaviorSubject -->
+    <div class="theme-controls">
+      <select class="theme-select" aria-label="Choose a background colour" (change)="onColorChange($event)">
+        @for (c of theme.colors; track c.name) {
+          <option [value]="c.name" [selected]="c.name === selectedColor()">{{ c.name }}</option>
+        }
+      </select>
+      <select class="theme-select" aria-label="Demo stream: Subject or BehaviorSubject" (change)="onModeChange($event)">
+        <option value="subject" [selected]="theme.mode() === 'subject'">Subject demo</option>
+        <option value="behaviorSubject" [selected]="theme.mode() === 'behaviorSubject'">BehaviorSubject demo</option>
+      </select>
+      <span class="stream-badge" [ngClass]="theme.mode() === 'subject' ? 'badge-subject' : 'badge-behavior'">
+        {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+      </span>
+    </div>
+</header>

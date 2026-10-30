@@ -1,0 +1,41 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="section"><div class="container" style="max-width:560px"><div class="card">
+  <div class="eyebrow">YRA Account</div><h2>Welcome back</h2><p>Sign in to access your member dashboard.</p>
+
+  <form class="form" (submit)="onSubmit($event)" novalidate>
+    <div class="field">
+      <label for="email">Email address</label>
+      <!-- [formField] connects the input to the signal form field -->
+      <input id="email" type="email" placeholder="you@example.com" [formField]="loginForm.email">
+      @if (loginForm.email().touched() && loginForm.email().invalid()) {
+        @for (err of loginForm.email().errors(); track err.kind) {
+          <small class="error">{{ err.message }}</small>
+        }
+      }
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="••••••••" [formField]="loginForm.password">
+      @if (loginForm.password().touched() && loginForm.password().invalid()) {
+        @for (err of loginForm.password().errors(); track err.kind) {
+          <small class="error">{{ err.message }}</small>
+        }
+      }
+    </div>
+
+    <label style="font-size:13px"><input type="checkbox" [formField]="loginForm.rememberMe"> Remember me</label>
+    <button class="btn btn-primary" type="submit">Sign in</button>
+  </form>
+
+  @if (message()) { <p class="success">{{ message() }}</p> }
+  <p style="font-size:13px;margin-top:17px">New to YRA? <a class="link" routerLink="/community">Create an account</a></p>
+</div></div></div>

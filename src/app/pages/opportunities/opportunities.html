@@ -1,0 +1,15 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">Stay informed</div><h1>Research Opportunities</h1><p>Academic calls, grants, fellowships, conferences and other opportunities curated for researchers.</p></div></div>
+    <section class="section"><div class="container"><div class="grid3">
+      <div class="card"><span class="badge orange">Call for Papers</span><h3>Special Issue Opportunities</h3><p>Browse current calls for papers and themed journal issues.</p><a class="link">View opportunity →</a></div>
+      <div class="card"><span class="badge">Fellowship</span><h3>Research Fellowship Opportunities</h3><p>Discover fellowships and academic development programmes.</p><a class="link">View opportunity →</a></div>
+      <div class="card"><span class="badge green">Grant</span><h3>Research Funding Calls</h3><p>Explore funding opportunities relevant to researchers.</p><a class="link">View opportunity →</a></div>
+    </div></div></section>

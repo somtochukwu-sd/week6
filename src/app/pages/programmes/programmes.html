@@ -1,0 +1,17 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">Learn with YRA</div><h1>Programmes</h1><p>Structured seminars, workshops, trainings, bootcamps and masterclasses designed around research development.</p></div></div>
+    <section class="section"><div class="container"><div class="tabs"><button class="tab active" >All</button><button class="tab" >Training</button><button class="tab" >Seminars</button><button class="tab" >Workshops</button></div>
+      <div class="grid3" id="programmeGrid">
+        <div class="card programme" data-type="training"><span class="badge">Training</span><h3>YRA Global Research Bootcamp 2026</h3><p>Four-week research development programme for emerging researchers.</p><div class="meta">Online · 4 Weeks · Paid</div><button class="btn btn-primary" routerLink="/events/bootcamp">View programme</button></div>
+        <div class="card programme" data-type="seminar"><span class="badge orange">Seminar</span><h3>How to Write a Systematic Literature Review</h3><p>Practical session on SLR design, search, synthesis and publication.</p><div class="meta">Online · 1 Day · Paid</div><button class="btn btn-secondary" routerLink="/events/slr">View programme</button></div>
+        <div class="card programme" data-type="workshop"><span class="badge">Workshop</span><h3>Data Analysis with SPSS for Researchers</h3><p>Hands-on data analysis and interpretation workshop.</p><div class="meta">Online · 2 Days · Paid</div><button class="btn btn-primary" routerLink="/events/spss">View programme</button></div>
+      </div>
+    </div></section>

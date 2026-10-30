@@ -1,0 +1,14 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">Watch & learn</div><h1>YRA Media</h1><p>Seminar recordings, training sessions and research conversations. The production version should embed videos from the official YRA YouTube channel.</p></div></div>
+    <section class="section"><div class="container"><div class="grid2">
+      <div class="card"><div class="video" ><div class="play">▶</div></div><h3 style="margin-top:16px">How to Write a Systematic Literature Review</h3><p>YRA Seminar Series · Practical Session</p></div>
+      <div class="card"><div class="video" ><div class="play">▶</div></div><h3 style="margin-top:16px">Research Methodology Masterclass</h3><p>YRA Training Archive</p></div>
+    </div></div></section>

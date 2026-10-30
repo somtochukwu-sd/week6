@@ -1,0 +1,5 @@
+/* Events page extras (the card design itself is in src/styles.css) */
+.tabs { margin-bottom: 22px; }
+.card-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+.query-info { font-size: 14px; margin-bottom: 16px; }
+.highlight { outline: 3px solid var(--orange); }

@@ -1,0 +1,71 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Young Researcher Academy</div>
+          <h1>Building Researchers.<br>Building Knowledge.<br>Creating <span>Impact.</span></h1>
+          <p class="lead">A collaborative community for young researchers and scholars committed to academic growth, research excellence, mentorship, knowledge-sharing and meaningful impact.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" routerLink="/about">Explore YRA →</button>
+            <button class="btn btn-secondary" routerLink="/events">Upcoming Training</button>
+          </div>
+          <div class="meta" style="margin-top:25px"><span>✓ Research development</span><span>✓ Structured training</span><span>✓ Mentorship & collaboration</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img src="logo.jpeg" alt="YRA brand visual">
+          </div>
+          <div class="floating"><b>Join our research community</b>Connect, learn, publish and create impact with other researchers.</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">The YRA Framework</div><h2>What YRA stands for</h2></div><p>Four connected pathways through which YRA supports researchers.</p></div>
+        <div class="grid4">
+          <div class="card pillar"><div class="icon">P</div><h3>PUBLISH</h3><p>Build the skills to communicate and publish meaningful research.</p><a class="link" routerLink="/resources">Explore resources →</a></div>
+          <div class="card pillar"><div class="icon orange">R</div><h3>RESEARCH</h3><p>Develop sound research knowledge, skills and practice.</p><a class="link" routerLink="/programmes">Explore training →</a></div>
+          <div class="card pillar"><div class="icon">I</div><h3>IMPACT</h3><p>Connect research with meaningful academic and societal outcomes.</p><a class="link" routerLink="/opportunities">Explore opportunities →</a></div>
+          <div class="card pillar"><div class="icon orange">C</div><h3>COLLABORATE</h3><p>Build connections, mentorship and cross-disciplinary partnerships.</p><a class="link" routerLink="/community">Join community →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#fff">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Don't miss out</div><h2>Upcoming events</h2></div><button class="btn btn-ghost" routerLink="/events">View all events →</button></div>
+        <div class="grid3">
+          <div class="card event-card"><div class="event-img">RESEARCH<br>BOOTCAMP</div><div class="event-body"><span class="badge">Training</span><h3>YRA Global Research Bootcamp 2026</h3><div class="meta">20 Aug · Online · 4 Weeks</div><p>Intensive research training for emerging researchers and scholars.</p><a class="link" routerLink="/events/bootcamp">Register now →</a></div></div>
+          <div class="card event-card"><div class="event-img" style="background:linear-gradient(135deg,#ff861b,#ffb56e)">SLR<br>MASTERCLASS</div><div class="event-body"><span class="badge orange">Seminar</span><h3>How to Write a Systematic Literature Review</h3><div class="meta">30 Aug · Online · 1 Day</div><p>Practical session on systematic literature review and publication.</p><a class="link" routerLink="/events/slr">View details →</a></div></div>
+          <div class="card event-card"><div class="event-img">DATA<br>ANALYSIS</div><div class="event-body"><span class="badge">Workshop</span><h3>Data Analysis with SPSS for Researchers</h3><div class="meta">10 Sep · Online · 2 Days</div><p>Hands-on training on data analysis and interpretation.</p><a class="link" routerLink="/events/spss">View details →</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="split-banner">
+          <div><div class="eyebrow" style="color:#ffd0a6">YRA Resource Centre</div><h2 style="color:#fff">Resources for your research journey.</h2><p style="color:#dceff3">Access free research materials, practical guides, templates and premium resources designed to support researchers at different stages.</p></div>
+          <div class="grid2">
+            <div class="card"><div class="icon">F</div><h3>Free Resources</h3><p>Explore guides, templates and learning materials.</p><button class="btn btn-secondary" style="margin-top:15px" routerLink="/resources">Browse free →</button></div>
+            <div class="card"><div class="icon orange">P</div><h3>Premium Resources</h3><p>Access premium guides, templates and research toolkits.</p><button class="btn btn-primary" style="margin-top:15px" routerLink="/resources">Browse premium →</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#fff">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">YRA Media</div><h2>Learn from past sessions</h2><p>Watch seminar and training recordings through the YRA YouTube channel.</p></div><button class="btn btn-secondary" routerLink="/media">View media library</button></div>
+        <div class="video" ><div class="play">▶</div></div>
+      </div>
+    </section>

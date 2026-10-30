@@ -1,0 +1,42 @@
+<!-- WEEK 6: this page greets with its component name from a WRITABLE SIGNAL,
+     and its background colour arrives through the navbar colour stream
+     (Subject by default, BehaviorSubject when the demo toggle is switched). -->
+<div class="hello-banner" [ngStyle]="{ 'background-color': bgColor() }">
+  <h2>Hello, {{ name() }}</h2>
+  <span class="stream-tag" [ngClass]="theme.mode() === 'subject' ? 'tag-subject' : 'tag-behavior'">
+    background via {{ theme.mode() === 'subject' ? 'Subject' : 'BehaviorSubject' }}
+  </span>
+</div>
+<div class="page-hero"><div class="container"><div class="eyebrow" style="color:#ffd0a6">About YRA</div><h1>About the Academy</h1><p>More than a research platform — a community built on collaboration, mentorship, academic integrity and service to young scholars.</p></div></div>
+    <section class="section"><div class="container">
+      <div class="grid2">
+        <div><div class="eyebrow">Who we are</div><h2>A collaborative community of researchers and scholars.</h2><p>Young Researcher Academy is a collaborative community dedicated to academic growth, skill development and research excellence.</p><p>YRA provides a structured environment where members can stay informed about academic opportunities, develop research and writing skills, engage in scholarly discussions, collaborate across disciplines, and receive mentorship and peer support.</p></div>
+        <div class="card"><div class="quote">“To ensure that young researchers are not isolated but supported academically, professionally, and intellectually, through a strong research community.”</div><p style="margin-top:15px">YRA Purpose</p></div>
+      </div>
+    </div></section>
+    <section class="section" style="background:#fff"><div class="container">
+      <div class="section-head"><div><div class="eyebrow">Our direction</div><h2>Vision, Mission & Purpose</h2></div></div>
+      <div class="grid3">
+        <div class="card"><span class="badge orange">Vision</span><h3 style="margin-top:13px">A globally relevant research community</h3><p>To build a vibrant, supportive, and globally relevant community of young researchers committed to excellence, collaboration, and impact.</p></div>
+        <div class="card"><span class="badge">Mission</span><h3 style="margin-top:13px">Mentorship, knowledge-sharing and development</h3><p>To foster a culture of mentorship, knowledge-sharing, and academic development through timely information, structured training and collaborative opportunities.</p></div>
+        <div class="card"><span class="badge orange">Purpose</span><h3 style="margin-top:13px">No researcher left isolated</h3><p>To ensure that young researchers are supported academically, professionally and intellectually through a strong research community.</p></div>
+      </div>
+    </div></section>
+    <section class="section"><div class="container">
+      <div class="section-head"><div><div class="eyebrow">Our values</div><h2>What guides YRA</h2></div></div>
+      <div class="grid3">
+        <div class="card"><div class="icon">01</div><h3>Academic Integrity</h3><p>Honesty, originality and ethical research practices.</p></div>
+        <div class="card"><div class="icon orange">02</div><h3>Collaboration</h3><p>Teamwork and cross-disciplinary engagement.</p></div>
+        <div class="card"><div class="icon">03</div><h3>Professionalism</h3><p>High standards in conduct and communication.</p></div>
+        <div class="card"><div class="icon orange">04</div><h3>Service</h3><p>Prioritising the growth and needs of members.</p></div>
+        <div class="card"><div class="icon">05</div><h3>Consistency</h3><p>Reliable systems, value and leadership.</p></div>
+        <div class="card"><div class="icon orange">06</div><h3>Growth & Innovation</h3><p>Continuous learning and improvement.</p></div>
+      </div>
+    </div></section>
+    <section class="section" style="background:#fff"><div class="container"><div class="section-head"><div><div class="eyebrow">Leadership</div><h2>Meet the team</h2></div></div><div class="grid3">
+      <div class="card"><div class="icon">BT</div><h3>Bamidele E. Tijani</h3><p><b>CEO / Founder / Team Lead</b></p><p>Provides strategic direction, leadership and representation for YRA.</p></div>
+      <div class="card"><div class="icon orange">IR</div><h3>Iskeel Sina Raheem</h3><p><b>General Secretary</b></p><p>Oversees administration, documentation, correspondence and governance support.</p></div>
+      <div class="card"><div class="icon">RT</div><h3>Director of Research & Training</h3><p><b>Executive</b></p><p>Designs and coordinates seminars, workshops and capacity-building programmes.</p></div>
+      <div class="card"><div class="icon orange">CE</div><h3>Director of Communications & Engagement</h3><p><b>Executive</b></p><p>Manages official communication channels and member engagement.</p></div>
+      <div class="card"><div class="icon">FO</div><h3>Treasurer / Finance & Operations Officer</h3><p><b>Executive</b></p><p>Manages financial resources, budgets and operational processes.</p></div>
+    </div></div></section>

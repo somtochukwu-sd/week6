@@ -1,0 +1,3 @@
+/* Validation messages for the signal form */
+.error { color: var(--danger); font-size: 13px; }
+.success { color: var(--success); font-weight: 700; margin-top: 12px; }
